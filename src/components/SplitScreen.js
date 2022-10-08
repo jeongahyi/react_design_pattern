@@ -4,19 +4,22 @@ const Container = styled.div`
   display: flex;
 `;
 const Pane = styled.div`
-  flex: 1;
+  /* pass props */
+  flex: ${props => props.weight};
 `;
 
 export const SplitScreen = ({
   left: Left, // component will be displayed on the left side of the split screen
   right: Right,
+  leftWeight = 1,
+  rightWeight = 1,
 }) => {
   return (
     <Container>
-      <Pane>
+      <Pane weight={leftWeight}>
         <Left />
       </Pane>
-      <Pane>
+      <Pane weight={rightWeight}>
         <Right />
       </Pane>
     </Container>

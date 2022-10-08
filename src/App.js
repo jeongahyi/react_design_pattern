@@ -1,4 +1,4 @@
-import { SplitScreen } from './SplitScreen';
+import { SplitScreen } from './components/SplitScreen';
 
 
 const LeftHandComponent = () => {
@@ -14,7 +14,9 @@ function App() {
     <SplitScreen
       // pass two components
       left={LeftHandComponent}
-      right={RightHandComponent} />
+      right={RightHandComponent}
+      leftWeight={1}
+      rightWeight={3} />
   );
 }
 
