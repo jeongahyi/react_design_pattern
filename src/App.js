@@ -2,6 +2,10 @@ import { SplitScreen } from './components/SplitScreen';
 import { RegularList } from './components/RegularList';
 import { PersonListItem } from './components/PersonListItem';
 import { DetailPersonListItem } from './components/DetailPersonListItem';
+import { DetailProductListItem } from './components/DetailProductListItem';
+import { ProductListItem } from './components/ProductListItem';
+import { NumberedList } from './components/NumberedList';
+import { Modal } from './components/Modal';
 
 // lists and list items
 const customers = [{
@@ -49,16 +53,30 @@ const RightHandComponent = ({ message }) => {
 function App() {
   return (
     <>
+      {/* 3. modal + style */}
+      <Modal>
+        <DetailProductListItem product={products[0]} />
+      </Modal>
       {/* 2. Lists and list items */}
       <RegularList
         items={customers}
         resourceName="person"
         itemComponent={PersonListItem}
       />
-      <RegularList
+      <NumberedList
         items={customers}
         resourceName="person"
         itemComponent={DetailPersonListItem}
+      />
+      <NumberedList
+        items={products}
+        resourceName="product"
+        itemComponent={ProductListItem}
+      />
+      <RegularList
+        items={products}
+        resourceName="product"
+        itemComponent={DetailProductListItem}
       />
       {/* 1. use children */}
       <SplitScreen leftWeight={1} rightWeight={3}
